@@ -9,17 +9,15 @@
 	(incf num)
 	(when (eq temp 'end-of-file) (close outfile) (close infile) (return))
 	(if (contains temp string flag)
-	    (progn (format t "Line ~d: ~a~&" num temp) (format outfile "~a~& temp")))))
+	    (progn (format t "Line ~d: ~a~&" num temp) (format outfile "~a~&" temp)))))
 	
-(defun contains (str test flag)
+(defun contains (str test flag &optional (remaintest test))
   (cond
-    ((equal test nil) T)
-	((equal str nil) nil)
-	(t (if (charequal (subseq str 0 1) (subseq test 0 1) flag)
-	   (if (contains (subseq str 1) (subseq test 1) flag)
-	       T
-		   (contains (subseq str 1) test flag))
-	   (contains (subseq str 1) test flag)))))
+    ((equal remaintest "") T)
+	((equal str "") nil)
+	((charequal (subseq str 0 1) (subseq remaintest 0 1) flag) (contains (subseq str 1) test flag (subseq remaintest 1)))
+	((equal test remaintest) (contains (subseq str 1) test flag test))
+	(t (contains str test flag test))))
 		  
 ; Tests if two character are equal, flag for flag sensitive
 (defun charequal (char1 char2 flag)

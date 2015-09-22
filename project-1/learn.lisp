@@ -27,21 +27,26 @@
 		 (read infile nil 'end-of-file))
 	   temp))))
 
+; finds the k closest neighbors to the "new" point
 (defun find-neighbors (k new stored) ; returns a list of the k nearest neighbors
   (if (<= k 1) (list (findmin new stored))
       (cons (findmin new stored) (find-neighbors (decf k) new (remove (findmin new stored) stored)))))
 
+; finds the closest point from a train-set to a given point
 (defun findmin (point train-set &optional closest)
   (cond ((not train-set) closest)
         ((not closest) (findmin point (rest train-set) (first train-set)))
 		(t (findmin point (rest train-set) (compare-point point closest (first train-set))))))
 
+; compares two options and returns the one closer to the test point
 (defun compare-point (point option1 option2)
   (if (<= (get-distance point option1) (get-distance point option2)) option1 option2))
 
+; returns the distance bewteen two points
 (defun get-distance (point testpoint)
   (+ (abs (- (first point) (second testpoint))) (abs (- (second point) (third testpoint)))))
   
+; prints a given list of points
 (defun print-points (neighbors test)
   (dolist (neigh neighbors)
     (if (= (first neigh) test) (format t "~s~&" neigh))))

@@ -55,13 +55,13 @@
 ; checks to see if the board is solved in its current state  
 (defun no-conflicts (board &aux (conflicts 0))
   (dolist (queen board conflicts)
-    (if (not (= (check-conflicts board queen) 0))
+    (if (unless (zerop (check-conflicts board queen)))
 	    (incf conflicts))))
 
 ; performs a single step of the nqueens program.
 (defun unit-step (board n steps-remain)
   (cond ((<= steps-remain 0) nil)
-        ((= 0 (no-conflicts board)) board)
+        ((zerop (no-conflicts board)) board)
 		(t (let ((col (get-conflicted-queen board)))
 		    (unit-step (update-queen board col (find-min-conflicts (remove (get-queen-in-col board col) board) col (1- n))) n (decf steps-remain))))))
 

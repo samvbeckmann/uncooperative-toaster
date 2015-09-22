@@ -1,3 +1,4 @@
+; performs symbolic differentiation on a given function
 (defun deriv (arg var)
   (cond ((atom arg) (if (equal arg var) 1 0)) ; constant u
         ((equal (first arg) '+) `(+ ,(deriv (second arg) var) ,(deriv (third arg) var))) ; addition

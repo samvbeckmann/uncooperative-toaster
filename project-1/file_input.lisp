@@ -1,3 +1,4 @@
+; writes lines in the first file to the second file that contain a string in the third argument
 (defun grep-file (file1 file2 string &aux(num 0) &optional flag
 				  (infile (open file1 :direction :input
 							:if-does-not-exist :error))
@@ -11,6 +12,7 @@
 	(if (contains temp string flag)
 	    (progn (format t "Line ~d: ~a~&" num temp) (format outfile "~a~&" temp)))))
 	
+; tests if one string contains another string, with the option to specify case-sensitive
 (defun contains (str test flag &optional (remaintest test))
   (cond
     ((equal remaintest "") T)
@@ -22,4 +24,3 @@
 ; Tests if two character are equal, flag for flag sensitive
 (defun charequal (char1 char2 flag)
   (if flag (equal char1 char2) (equalp char1 char2)))
-  

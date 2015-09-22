@@ -1,0 +1,117 @@
+CL-USER 2 > (newt-root 256 0.01)
+4.0
+
+CL-USER 3 > (newt-root 2 0.01)
+1.1892302
+
+----------------------------------------------------------------------------
+
+CL-USER 5 > (deriv '(* 2 (exp x)) 'x)
+(+ (* 2 (* (EXP X) 1)) (* (EXP X) 0))
+
+----------------------------------------------------------------------------
+
+CL-USER 9 > (setf mybook (make-instance 'book :title "Catch-22"))
+#<BOOK 200F720B>
+
+CL-USER 10 > (setf mydvd (make-instance 'CD-DVD :title "Citizen Kane"))
+#<CD-DVD 200D5F53>
+
+CL-USER 11 > (check-out mybook 3 "Sam")
+"Sam"
+
+CL-USER 12 > (check-out mydvd 5 "Sen")
+"Sen"
+
+CL-USER 13 > (due-date mybook)
+17
+
+CL-USER 14 > (due-date mydvd)
+10
+
+CL-USER 17 > (renew mybook 15 "Sam")
+"Sam"
+
+CL-USER 18 > (patron mydvd)
+"Sen"
+
+----------------------------------------------------------------------
+
+CL-USER 9 > (grep-file "hellofile.txt" "outputfile.txt" "hello")
+Line 2: hellohel
+Line 4: las kd hfhellosao;ldjfh
+Line 5: hello hello
+Line 6: hello
+NIL
+
+outputfile.txt:
+---------------
+hellohel
+las kd hfhellosao;ldjfh
+hello hello
+hello
+
+----------------------------------------------------------------------
+
+CL-USER 4 : 1 > (nearest-neighbor)
+Input training file name: "learn-train-file"Read 1000 training instances
+
+Input test file name: "learn-test-file"Read 4 test instances
+
+Input value of k for calculating k-nearest-neighbors: 5
+*************************************
+The likely classification of (0.55 0.75 D) is 1 because of the 5 closest stored points the following 5 are of class 1:
+(1 0.55829 0.766468 ITEM-567)
+(1 0.545673 0.724451 ITEM-541)
+(1 0.541214 0.719744 ITEM-538)
+(1 0.548419 0.78912 ITEM-546)
+(1 0.592147 0.747748 ITEM-598)
+Other points belonging to class 0:
+*************************************
+The likely classification of (0.73 0.86 C) is 1 because of the 5 closest stored points the following 4 are of class 1:
+(1 0.733953 0.892897 ITEM-728)
+(1 0.755937 0.87294 ITEM-749)
+(1 0.751332 0.880799 ITEM-743)
+(1 0.72038 0.827324 ITEM-711)
+Other points belonging to class 0:
+(0 0.752077 0.84836 ITEM-744)
+*************************************
+The likely classification of (0.11 0.95 B) is 0 because of the 5 closest stored points the following 5 are of class 0:
+(0 0.0852329 0.942662 ITEM-89)
+(0 0.12267 0.974407 ITEM-127)
+(0 0.120649 0.920144 ITEM-122)
+(0 0.103937 0.985724 ITEM-106)
+(0 0.120239 0.917307 ITEM-121)
+Other points belonging to class 1:
+*************************************
+The likely classification of (0.22 0.5 A) is 1 because of the 5 closest stored points the following 5 are of class 1:
+(1 0.210684 0.508477 ITEM-206)
+(1 0.204234 0.489816 ITEM-194)
+(1 0.252098 0.493085 ITEM-250)
+(1 0.208293 0.528663 ITEM-203)
+(1 0.236949 0.468838 ITEM-235)
+Other points belonging to class 0:
+
+!!!!Aint I a good learner??!!
+NIL
+
+--------------------------------------------------------------------
+
+CL-USER 1 > (data-to-program)
+Input a one-line function definition:
+(defun power (x) (expt 2 x))
+When I apply your defined function POWER to the argument 0.47847354 I get 1.3932687
+NIL
+
+---------------------------------------------------------------------
+
+CL-USER 13 > (nqueens 4 10)
+((3 0) (2 2) (1 2) (0 1))
+
+CL-USER 14 > (nqueens 8 1000)
+((7 4) (6 5) (5 7) (4 4) (3 2) (2 1) (1 2) (0 6))
+
+---------------------------------------------------------------------
+
+CL-USER 2 > (permutations '(a b c))
+((C A B) (C B A) (B A C) (B C A) (A B C) (A C B))

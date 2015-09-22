@@ -1,3 +1,4 @@
+; takes in a single-line function and evaluates it with a random argument between 0 and 1
 (defun data-to-program ()
   (format t "Input a one-line function definition:~&")
   (let ((func (read)) (rnd (random 1.0)))

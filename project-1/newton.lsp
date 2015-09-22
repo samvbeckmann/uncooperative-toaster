@@ -1,3 +1,4 @@
+; Take the newton root of the first argument with the accuracy of the next argument
 (defun newt-root (number tol &optional(x 1))
   (if (< (abs (- (expt x 4) number)) tol)
        (float x)

@@ -1,0 +1,6 @@
+(setf *domains* '( 
+  (outlook      sunny rain overcast)
+  (temperature  hot mild cool)
+  (humidity 	high normal)
+  (windy 	true false)))
+

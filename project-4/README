@@ -1,0 +1,15 @@
+To run my program, you have to copy one of the .data files to in.data, load
+the corresponding .domain file and ss.fas into the lisp interpreter, and then
+type (run-id3).  
+
+For example, after you have copied weather.data to in.data, within clisp
+you can type the following commands in sequence:
+
+(load "weather.domain")
+(load "ss.fas")
+(run-id3)
+
+This will train a decision tree on the training data and test it on the
+training data.  The classification accuracy on training and testing as well
+as the learnt tree is printed out.
+

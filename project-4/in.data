@@ -1,0 +1,17 @@
+(
+  (- (outlook sunny) (temperature hot) (humidity high) (windy false))	   ;1 
+  (- (outlook sunny) (temperature hot) (humidity high) (windy true))	   ;2
+  (+ (outlook overcast) (temperature hot) (humidity high) (windy false))   ;3
+  (+ (outlook rain) (temperature mild) (humidity high) (windy false))	   ;4
+  (+ (outlook rain) (temperature cool) (humidity normal) (windy false))    ;5 
+  (- (outlook rain) (temperature cool) (humidity normal) (windy true))     ;6
+  (+ (outlook overcast) (temperature cool) (humidity normal) (windy true)) ;7
+  (- (outlook sunny) (temperature mild) (humidity high) (windy false))     ;8
+  (+ (outlook sunny) (temperature cool) (humidity normal) (windy false))   ;9
+  (+ (outlook rain) (temperature mild) (humidity normal) (windy false))    ;10 
+  (+ (outlook sunny) (temperature mild) (humidity normal) (windy true))    ;11
+  (+ (outlook overcast) (temperature mild) (humidity high) (windy true))   ;12
+  (+ (outlook overcast) (temperature hot) (humidity normal) (windy false)) ;13
+  (- (outlook rain) (temperature mild) (humidity high) (windy true)) 	   ;14
+)
+
